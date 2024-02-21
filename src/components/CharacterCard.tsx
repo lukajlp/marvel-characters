@@ -1,21 +1,26 @@
-import React, { FC } from "react";
+import { Character } from "@/types/marvels";
+import { FC } from "react";
+import Image from "next/image";
 
-interface CharacterCardProps {}
+interface CharacterCardProps {
+  character: Character;
+}
 
-const CharacterCard: FC<CharacterCardProps> = ({}) => {
+const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
   return (
     <div className="card w-full bg-base-200 shadow-xl">
       <figure>
-        {/* <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="car!"
-        /> */}
+        <Image
+          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          alt={character.name}
+          width={500}
+          height={400}
+        />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Life hack</h2>
-        <p>How to park your car at your garage?</p>
+        <h2 className="card-title">{character.name}</h2>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Learn now!</button>
+          <button className="btn btn-primary">Detail {character.name}</button>
         </div>
       </div>
     </div>

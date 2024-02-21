@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { FC } from "react";
 
 const Navbar: FC = () => {
@@ -5,7 +6,9 @@ const Navbar: FC = () => {
     <header>
       <div className="navbar bg-base-100 container">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link href="/" className="btn btn-ghost normal-case text-xl">
+            Marvel Characters
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">

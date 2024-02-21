@@ -25,3 +25,9 @@ export const getCharacters = async (): Promise<CharacterDataWrapper> => {
   const response = await fetch(url);
   return handleResponse<CharacterDataWrapper>(response);
 };
+
+export const detailCharacters = async (characterId: string): Promise<CharacterDataWrapper> => {
+  const url = `${API_BASE_URL}/characters/${characterId}?${query}`;
+  const response = await fetch(url);
+  return handleResponse<CharacterDataWrapper>(response);
+};

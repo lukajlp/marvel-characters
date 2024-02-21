@@ -1,7 +1,20 @@
+"use client";
+
 import Link from "next/link";
-import React, { FC } from "react";
+import { useRouter } from "next/navigation";
+import { FC, useState } from "react";
 
 const Navbar: FC = () => {
+  const router = useRouter();
+  const [querySearch, setQuerySearch] = useState<string>("");
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && querySearch !== "") {
+      setQuerySearch("");
+      router.push(`/search?q=${querySearch}`);
+    }
+  };
+
   return (
     <header>
       <div className="navbar bg-base-100 container">
@@ -13,9 +26,12 @@ const Navbar: FC = () => {
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
+              value={querySearch}
               type="text"
               placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
+              onChange={(e) => setQuerySearch(e.target.value)}
+              onKeyDown={handleSearch}
             />
           </div>
         </div>

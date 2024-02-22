@@ -9,7 +9,7 @@ interface CharacterCardProps {
 
 const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
   return (
-    <div className="card w-full bg-base-200 shadow-xl">
+    <div className="card w-full bg-base-200 shadow-xl items-center justify-center align-middle">
       <figure>
         <Image
           src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
@@ -20,7 +20,7 @@ const CharacterCard: FC<CharacterCardProps> = ({ character }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{character.name}</h2>
-        <div className="card-actions justify-end">
+        <div className="card-actions items-center justify-center">
           <Link href={`character/${character.id}`} className="btn btn-primary">
             Detail {character.name}
           </Link>

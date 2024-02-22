@@ -101,7 +101,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="container flex flex-grow gap-10 items-center justify-center mt-10">
+      <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center mt-10">
         <select
           className="select select-ghost w-full max-w-xs"
           value={selectedComicId || ""}
